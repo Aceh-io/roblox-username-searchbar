@@ -1,5 +1,5 @@
 # Roblox Search Player
-This was made for searching up players on roblox with autocomplete.
+Made for searching up players on roblox with autocomplete.
 
 <img src="https://user-images.githubusercontent.com/55791489/180005647-fa1b4d83-9ffe-4e6e-ab04-45041cff6ac2.png"  width="300" height="300">
 <br>
