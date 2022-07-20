@@ -1,11 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import React, { useState, useEffect } from "react";
 import SearchBox from "../components/SearchBox";
 
 export default function App() {
   const [data, setData] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const fetchData = async () => {
     const req = await fetch(`/api/search/${inputValue}`, {
@@ -20,8 +18,6 @@ export default function App() {
 
     return setData(newData);
   };
-
-  const [inputValue, setInputValue] = useState("");
   const handleClick = (event) => {
     fetchData();
   };
@@ -30,7 +26,7 @@ export default function App() {
       if (inputValue && inputValue.length >= 3) {
         handleClick();
       }
-    }, 500);
+    }, 225);
 
     return () => clearTimeout(timer);
   }, [inputValue]);
@@ -43,11 +39,8 @@ export default function App() {
         type="text"
         onChange={(e) => setInputValue(e.target.value)}
       />
-    {Object.entries(data).map((user) => {
-      console.log(data)
-        return (
-          <SearchBox key={Math.random()} user={data}/>
-        );
+      {Object.entries(data).map((user) => {
+        return <SearchBox key={Math.random()} user={data} />;
       })}
     </div>
   );
